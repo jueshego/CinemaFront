@@ -1,0 +1,69 @@
+<div class="divLoading" *ngIf="loading">
+    <img class="imgLoading" src="./../../../assets/loading.gif">
+</div>
+
+<div *ngIf="!loading">
+    <div class="row">
+        <div class="col" id="listaPeliculas">
+            <div class="container">
+                <div class="row">
+                    <div class="col" id="colFiltro">
+                        <div class="form-group">
+                            <input type="text" ng class="form-control" placeholder="Buscar Pelicula..."
+                                id="filtro" name="filtro" [(ngModel)]="filtro">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <table class="table-striped">
+                        <thead>
+                            <tr>
+                                <th class="colCenter colIndex">#</th>
+                                <th class="colCenter colData">Titulo</th>
+                                <th class="colCenter colData">Estreno</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="fila" *ngFor="let item of peliculas | filter:filtro | paginate: {itemsPerPage: 10, currentPage: pageActual} ; let i = index" (click)="ver(item)">
+                                <td class="colIndex colFilaIndex">{{i + 1}}</td>
+                                <td class="colData">{{item.titulo}}</td>
+                                <td class="colData colCenter">{{item.estreno | date:'d-MM-y'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <pagination-controls (pageChange)="pageActual = $event" style="margin-bottom: 20rem;"></pagination-controls>
+                </div>
+            </div>
+        </div>
+        <div class="col" id="cardPelicula">
+            <div class="card">
+                <div id="cont_titulo" class="container-sm">
+                    <div class="row">
+                        <div id="titulo" class="col-sm-11" (click)="editar(id)">
+                            <h3 class="card-title">{{titulo}}</h3>
+                        </div>
+                        <div id="borrar" class="col-sm-1">
+                            <label id="x" class="badge badge-pill badge-light ml-1" (click)="borrar(id)">X</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col" style="padding-top: 10px;" >
+                            <h5 class="estreno">Estreno</h5>
+                            <h6 class="mes">{{estreno | date:'MMMM'}}</h6>
+                            <h6 class="dia">{{estreno | date:'d'}}</h6>
+                            <h6 class="diaSemana">{{estreno | date:'EEEE'}}</h6>
+                            <h6 class="ano">{{estreno | date:'y'}}</h6>
+                        </div>
+                        <div class="col">
+                            <img src="{{poster}}" width="100" height="150">
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

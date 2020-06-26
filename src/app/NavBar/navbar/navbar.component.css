@@ -1,0 +1,11 @@
+.pill {
+    background-color: ivory;
+    margin:0 10px 0 10px;
+    border-radius: 12px;
+    padding: 3px;
+    font-size: small;
+    width: 25px;
+    height: 25px;
+    font-weight: bold;
+    text-align: center;
+}

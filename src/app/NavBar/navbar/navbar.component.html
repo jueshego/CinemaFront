@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Cinema</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Clientes 
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" [routerLink]="['clientes']" routerLinkActive="router-link-active">Insertar</a>
+              <a class="dropdown-item">Listado</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Peliculas 
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" [routerLink]="['insertar-pelicula']" routerLinkActive="router-link-active">Insertar</a>
+              <a class="dropdown-item" [routerLink]="['listar-peliculas']" routerLinkActive="router-link-active">Listado</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" [routerLink]="['listado-filtro']" routerLinkActive="router-link-active">Buscar</a>
+            </div>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['list']" routerLinkActive="router-link-active">Salas <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <label style="color:#F7F8E0">{{labelEntidad}}</label>
+      <!--<label style="background-color: darkgreen;" class="badge badge-pill badge-light ml-5">{{cantPeliculas$ | async}}</label>-->
+      <div class="pill">{{cantidad}}</div>
+    </div>
+  </nav>
+
