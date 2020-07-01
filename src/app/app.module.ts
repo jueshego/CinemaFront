@@ -11,13 +11,14 @@ import { ClientesComponent } from './Cliente/clientes/clientes.component';
 import { ListarComponent } from './Cliente/listar/listar.component';
 import { StoreModule } from '@ngrx/store';
 import { InsertarPeliculaComponent } from './Pelicula/Insertar/insertar-pelicula.component';
-import { ListarPeliculasComponent } from './Pelicula/Listar/listar-peliculas/listar-peliculas.component'
+import { ListarPeliculasComponent } from './Pelicula/Listar/listar-peliculas.component'
 import { DatePipe } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ListadoFiltroComponent } from './Pelicula/listado-filtro/listado-filtro.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { NgxPaginationModule } from 'ngx-pagination'
 import { indRegsReducer } from './Reducers/store.reducer';
+import { CardPeliculaComponent } from './Pelicula/CardPelicula/card-pelicula/card-pelicula.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { indRegsReducer } from './Reducers/store.reducer';
     InsertarPeliculaComponent,
     ListarPeliculasComponent,
     ListadoFiltroComponent,
-    FilterPipe
+    FilterPipe,
+    CardPeliculaComponent
   ],
   imports: [
     BrowserModule,

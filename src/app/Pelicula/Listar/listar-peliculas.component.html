@@ -1,0 +1,14 @@
+<div class="divLoading" *ngIf="loading">
+    <img src="./../../../../assets/load.gif">
+</div>
+
+<div *ngIf="!loading">
+    <ul>
+        <li *ngFor="let item of peliculas; let i = index">
+            <div class="cardPelicula">
+                <app-card-pelicula [pelicula]="item" (eventListar)="listarPeliculas()">
+                </app-card-pelicula>
+            </div>
+        </li>
+    </ul>
+</div>

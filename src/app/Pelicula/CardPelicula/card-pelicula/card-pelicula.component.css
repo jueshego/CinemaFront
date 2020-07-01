@@ -1,16 +1,6 @@
-ul {
-    list-style: none;
-}
-
-li {
-    float: left;
-}
-
 .card {
     width: 290px;
     height: 12rem; 
-    margin: 0px 10px 25px 25px; 
-    padding: 0 10px 10px 10px;
     background-color: rgb(77, 67, 148);
     box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -24,12 +14,10 @@ li {
 
 .card-title{
     text-align: center;
-    margin-bottom: 0px;
-    margin-top: 5px;
+    margin: 5px 0 0 8px;
     background-color: rgb(93, 80, 177);
     font-size: 22px;
     height: 25px;
-    padding-top: 0;
     text-shadow: 1px 1px 2px rgb(46, 43, 59);
 }
 
@@ -96,4 +84,3 @@ li {
     float: right;
     margin-top: 5px;
 }
-

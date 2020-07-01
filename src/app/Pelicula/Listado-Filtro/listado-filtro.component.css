@@ -1,7 +1,5 @@
 tbody> :nth-child(odd) {
     height: 2rem;
-    cursor: pointer;
-    
 }
 
 tbody:nth-child(even) :hover{
@@ -10,8 +8,8 @@ tbody:nth-child(even) :hover{
     border-color: #424242;
     /*box-shadow: 0px 3px #585858;*/
     box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.2), 0 3px 3px 0  rgba(0, 0, 0, 0.19);
+    cursor: pointer;
 }
-
 
 .colCenter {
     text-align: center;
@@ -30,103 +28,6 @@ tbody:nth-child(even) :hover{
     padding-left: 1rem;
 }
 
-.card {
-    width: 290px;
-    height: 12rem; 
-    margin: 0px 10px 25px 25px; 
-    padding: 0 10px 10px 10px;
-    background-color: rgb(77, 67, 148);
-    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.card-body {
-    padding-bottom: 0px;
-    padding-top: 5px;
-    color: rgb(190, 190, 190);;
-    text-shadow: 1px 1px 2px rgb(132, 129, 146);
-}
-
-.card-title{
-    text-align: center;
-    margin-bottom: 0px;
-    margin-top: 5px;
-    background-color: rgb(93, 80, 177);
-    font-size: 22px;
-    height: 25px;
-    padding-top: 0;
-    text-shadow: 1px 1px 2px rgb(46, 43, 59);
-}
-
-.estreno {
-    width: 100%;
-    margin: auto;
-    text-align: center;
-    word-wrap: break-word;
-    margin-bottom: 10px;
-    text-shadow: 1px 1px 2px rgb(122, 15, 15);
-    color: rgb(43, 39, 37);
-}
-
-.mes{
-    font-size: 8;
-    text-align: center;
-    margin: 0;
-}
-.dia{
-    font-size: 12;
-    text-align: center;
-    margin: 0;
-}
-.diaSemana{
-    font-size: 12;
-    text-align: center;
-    margin: 0;
-}
-.ano{
-    font-size: 8;
-    text-align: center;
-    margin: 0;
-}
-
-.row {
-    padding: 0px;
-    margin: auto;
-}
-
-.col {
-    width: 50%;
-}
-
-.card-title:hover {
-    opacity: 1; 
-    transition: .6s .1s;
-    cursor: pointer;
-    background-color: rgb(46, 40, 90);
-    font-size: 22px;
-    color: rgb(255, 255, 255);
-    text-shadow: 1px 1px 2px rgb(132, 129, 146);
-}
-
-#titulo, #borrar, #cont_titulo {
-    margin-left: 0px;
-    margin-right: 0px;
-    padding-left: 0px; 
-    padding-right: 0px;
-}
-
-#x {
-    cursor: pointer;
-    font-size: 9px;
-    float: right;
-    margin-top: 5px;
-}
-
-#cardPelicula {
-    display: table-cell;
-    vertical-align: middle;
-    margin-top: 10rem;
-}
-
 #colFiltro {
     padding-left: 0px;
     margin-top: 1rem;
@@ -140,9 +41,16 @@ table {
     margin-bottom: 2rem;
 }
 
+#listaPeliculas {
+    padding-top: 2rem;
+    padding-left: 5rem;
+}
 
-
-
+#cardPelicula {
+    padding: 8rem 0 0 0;
+    margin: 0 0 0 0;
+    height: 400px;
+}
 
 
 
