@@ -14,11 +14,22 @@ export class ListarComponent implements OnInit {
 
   @Input('listadoClientes') clientes: Cliente[];
   @Output() eventEditar = new EventEmitter<Cliente>();
+  
+  borrando: boolean = false;
+  clienteIdBorrar: number
+  loading: boolean
+  pageActual: number = 1 
 
   constructor(private clienteService: ClienteService,
-    private store: Store<{ storeIndRegs: IndicadorRegistros }>) { }
+    private store: Store<{ storeIndRegs: IndicadorRegistros }>) {
+      this.loading = true
+  }
 
   ngOnInit(): void {
+  }
+
+  ngAfterViewInit() {
+    this.loading = false
   }
 
   editar(cliente: Cliente){
@@ -26,6 +37,8 @@ export class ListarComponent implements OnInit {
   }
 
   borrar(id: number){
+    this.borrando = true
+    this.clienteIdBorrar = id 
     console.log('eliminar: ' + id);
     this.clienteService.EliminarCliente(id)
       .subscribe(resp => this.borrarListarClientes(), error => console.error(error));

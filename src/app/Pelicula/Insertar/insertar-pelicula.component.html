@@ -37,10 +37,20 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" [disabled]="!formPelicula.form.valid" class="btn btn-dark">Guardar</button>
-                <div *ngIf="editMode"><button type="button" class="btn btn-dark" (click)="borrar(model.peliculaId)">Borrar</button></div>
+                <button *ngIf="!guardando" type="submit" [disabled]="!formPelicula.form.valid" class="btn btn-dark">Guardar</button>
+                <button *ngIf="guardando" [disabled]="true" class="btn btn-dark">
+                    <span class="spinner-border spinner-border-sm"></span>
+                    <span> Guardando..</span>
+                </button>
+                <div *ngIf="editMode">
+                    <button *ngIf="!borrando" type="button" style="width: 90px;" class="btn btn-dark" (click)="borrar(model.peliculaId)">Borrar</button>
+                    <button *ngIf="borrando" [disabled]="true" class="btn btn-dark">
+                        <span class="spinner-border spinner-border-sm"></span>
+                        <span> Borrando..</span>
+                    </button>
+                </div>
                 <div *ngIf="editMode"><button type="reset" class="btn btn-dark" (click)="nueva()">Nueva</button></div>
-            </div> 
+            </div>   
         </form>
     </div>
 </div>

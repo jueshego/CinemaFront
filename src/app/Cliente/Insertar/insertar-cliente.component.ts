@@ -17,6 +17,8 @@ export class InsertarClienteComponent implements OnInit {
   selSexo: FormControl = new FormControl();
   clientes: Cliente[];
   editMode: boolean = false;
+  guardando: boolean = false;
+  loading: boolean
 
   constructor(private fromBuilder: FormBuilder, private clienteService: ClienteService,
     private store: Store<{ storeIndRegs: IndicadorRegistros }>) { }
@@ -28,9 +30,10 @@ export class InsertarClienteComponent implements OnInit {
   }
 
   guardar(formValue: any){
+    this.guardando = true 
     const cliente = new Cliente();
 
-    cliente.cedula = formValue.txtCedula;
+    cliente.cedula = formValue.txtCedula; 
     cliente.nombre = formValue.txtNombre;
     cliente.activo = formValue.chkActivo;
     cliente.sexo = this.selSexo.value;
@@ -54,9 +57,11 @@ export class InsertarClienteComponent implements OnInit {
     this.ListarClientes();
 
     this.Limpiar();
+    this.guardando = false
   }
 
   Limpiar() {
+    
     this.formInsertarCliente = this.fromBuilder.group({
       txtId: [null],
       txtCedula: [null, [Validators.required]],
@@ -69,12 +74,15 @@ export class InsertarClienteComponent implements OnInit {
   }
 
   ListarClientes() {
+    this.loading = true
     this.clienteService.ListarClientes().
       subscribe(resp => this.ConsultaExitosa(resp), error => console.error(error));
   }
 
   ConsultaExitosa(clientes: Cliente[]): void {
      this.clientes = clientes;
+
+     this.loading = false
 
      console.log(this.clientes);
 

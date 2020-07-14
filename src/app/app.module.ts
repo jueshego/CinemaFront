@@ -19,6 +19,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { NgxPaginationModule } from 'ngx-pagination'
 import { indRegsReducer } from './Reducers/store.reducer';
 import { CardPeliculaComponent } from './Pelicula/CardPelicula/card-pelicula/card-pelicula.component';
+import { InsertarSalaComponent } from './Sala/insertar-sala/insertar-sala.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CardPeliculaComponent } from './Pelicula/CardPelicula/card-pelicula/car
     ListarPeliculasComponent,
     ListadoFiltroComponent,
     FilterPipe,
-    CardPeliculaComponent
+    CardPeliculaComponent,
+    InsertarSalaComponent
   ],
   imports: [
     BrowserModule,

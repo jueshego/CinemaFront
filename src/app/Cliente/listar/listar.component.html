@@ -1,28 +1,47 @@
-<div class="container" style="margin-left: 2rem;">
-    <div class="row">
-        <div class="col">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Cedula</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Sexo</th>
-                        <th scope="col">Activo</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let item of clientes"> 
-                        <td>{{item.clienteId}}</td>
-                        <td>{{item.cedula}}</td>
-                        <td>{{item.nombre}}</td>
-                        <td>{{item.sexo}}</td>
-                        <td>{{item.activo}}</td>
-                        <td><button class="btn btn-dark" (click)="editar(item)">Editar</button></td>
-                        <td><button class="btn btn-dark" (click)="borrar(item.clienteId)">Borrar</button></td>
-                    </tr>
-                </tbody>
-            </table>
+<div class="divLoading" *ngIf="loading">
+    <img class="imgLoading" src="./../../../assets/loading.gif">
+</div>
+
+<div *ngIf="!loading">
+    <div class="container" style="margin-left: 2rem;">
+        <div class="row">
+            <div class="col">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Cedula</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Sexo</th>
+                            <th scope="col">Activo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of clientes | paginate: {itemsPerPage: 7, currentPage: pageActual}"> 
+                            <td>{{item.clienteId}}</td>
+                            <td>{{item.cedula}}</td>
+                            <td>{{item.nombre}}</td>
+                            <td>{{item.sexo}}</td>
+                            <td>{{item.activo}}</td>
+                            <td><button class="btn btn-dark" (click)="editar(item)">Editar</button></td>
+                            <td>
+                                <div *ngIf="item.clienteId !== clienteIdBorrar">
+                                    <button class="btn btn-dark" (click)="borrar(item.clienteId)">Borrar</button>
+                                </div>
+                                <div *ngIf="borrando && item.clienteId === clienteIdBorrar">
+                                    <button  [disabled]="true" class="btn btn-dark">
+                                        <span class="spinner-border spinner-border-sm"></span>
+                                        <span> Borrando..</span>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <pagination-controls (pageChange)="pageActual = $event" style="margin-bottom: 20rem;"></pagination-controls>
         </div>
     </div>
 </div>

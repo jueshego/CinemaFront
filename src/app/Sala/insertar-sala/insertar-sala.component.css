@@ -1,0 +1,31 @@
+.divCard {
+    width: 18rem;
+    height: 18rem;
+    width:16rem;
+    padding: 15px;
+    margin-left: 2rem;
+    border-radius: 5px;
+    background-color: rgb(77, 67, 148);
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.divCardBody {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.divCardHeader {
+    margin: 5px 0 10px 10px;
+}
+
+.form-control {
+    margin: 0 0 20px 0;
+}
+
+tr {
+    height: 30rem;
+}
+
+td {
+    vertical-align: middle;
+}

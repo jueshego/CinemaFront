@@ -4,7 +4,7 @@ import { Pelicula } from '../../Models/Pelicula'
 import { PeliculaService } from '../../Services/pelicula.service'
 import { Router, ActivatedRoute } from '@angular/router'
 import { DatePipe } from '@angular/common';
-
+import * as $ from 'jquery'
 
 @Component({
   selector: 'app-insertar-pelicula',
@@ -19,6 +19,9 @@ export class InsertarPeliculaComponent implements OnInit {
   editMode: boolean = false;
   title: string;
   alerta: boolean = false;
+  guardando: boolean = false;
+  borrando: boolean = false;
+
   /*
   peliculaId: number;
   titulo: string;
@@ -55,7 +58,7 @@ export class InsertarPeliculaComponent implements OnInit {
       .replace(/(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3"); 
 
     this.model = { peliculaId: 0, titulo: '', estreno: new Date(myDate), rutaPoster: ''};
-  }
+  }  
 
   ObtenerPelicula(pelicula: Pelicula) {
     let myDate = this.datePipe.transform(pelicula.estreno, 'yyyy-MM-dd')
@@ -72,15 +75,17 @@ export class InsertarPeliculaComponent implements OnInit {
   }
 
   Guardar(formPelicula: NgForm){
+    this.guardando = true
+    
     console.log(this.model.titulo);
     console.log(this.model.estreno);
     console.log(this.model.rutaPoster); 
 
     if (formPelicula.form.pristine || this.model.estreno <= new Date(1900,1,1)){
       console.log('form invalido'); 
-      return;
+      return; 
     }
-
+ 
     if(this.editMode){
       this.peliculaService.ActualizarPelicula(this.model)
         .subscribe(resp => this.GuardadoExitoso(resp as Pelicula), 
@@ -90,7 +95,7 @@ export class InsertarPeliculaComponent implements OnInit {
         .subscribe(resp => this.GuardadoExitoso(resp as Pelicula), 
                  error => console.error(error))
     }
-  }
+  } 
 
   GuardadoExitoso(pelicula: Pelicula): void {
     console.log('pelicula id: ' + pelicula.peliculaId);
@@ -99,10 +104,12 @@ export class InsertarPeliculaComponent implements OnInit {
   }
 
   borrar(id: number){
+    this.borrando = true
+
     console.log('borrar pelicula id: ' + id);
 
     this.peliculaService.EliminarPelicula(id).
-      subscribe(resp => this.borradoExitoso(), 
+      subscribe(resp => this.borradoExitoso(),  
         error => console.error(error));
   }
 
