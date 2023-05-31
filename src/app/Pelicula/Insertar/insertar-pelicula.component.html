@@ -6,14 +6,11 @@
                 <input type="hidden" id="id" name="id" [(ngModel)]="model.peliculaId" #peliculaId="ngModel" >
                 <div class="form-group"> 
                     <!--<label for="txtCedula">Cedula</label>-->
-                    <input type="text" id="titulo" name="titulo" required tituloUnico class="form-control" [(ngModel)]="model.titulo" #titulo="ngModel" placeholder="Titulo" maxlength="30">
+                    <input type="text" id="titulo" name="titulo" required class="form-control" [(ngModel)]="model.titulo" #titulo="ngModel" placeholder="Titulo" maxlength="30">
                 
                     <div *ngIf="titulo.invalid && (titulo.dirty || titulo.touched)" class="alert alert-danger">
                         <div *ngIf="titulo.errors.required">
                             titulo es requerido.
-                        </div>
-                        <div *ngIf="titulo.errors.tituloUnico">
-                            titulo ya existe
                         </div>
                     </div>
                 </div>

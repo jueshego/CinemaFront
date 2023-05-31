@@ -1,27 +1,38 @@
 <div class="table">
     <tr>
-        <td>
+        <td id="colForm">
             <div class="divCard">
                 <div class="divCardHeader">
-                    <h5>Guardar Sala</h5>
+                    <h5>{{title}}</h5>
                 </div>
                 <div class="divCardBody">  
                     <form [formGroup]="formSala" (submit)="guardar(formSala.value)">
-                        <select class="form-control" formControlName="selSede" [class.is-invalid]="formSala.get('selSede').touched && formSala.get('selSede').invalid">
+                        <select class="form-control" formControlName="selSede" [class.is-invalid]="formSala.get('selSede').touched && formSala.get('selSede').invalid"
+                          [class.disabled]="editMode">
                             <option value="">-- Sede --</option>
                             <option *ngFor="let item of sedes" [value]="item">{{item}}</option>
                         </select>  
-                        <input type="text" formControlName="txtCodigo" class="form-control" placeholder="Codigo" maxlength="3"
+                        <input type="text" formControlName="txtCodigo" class="form-control" placeholder="Codigo" maxlength="2" [class.disabled]="editMode"
                             [class.is-invalid]="formSala.get('txtCodigo').touched && formSala.get('txtCodigo').invalid" onkeyup="this.value = this.value.toUpperCase();" />
                         <input type="text" style="text-align: end;" formControlName="txtCapacidad" class="form-control" placeholder="Capacidad" maxlength="2"
                             [class.is-invalid]="formSala.get('txtCapacidad').touched && formSala.get('txtCapacidad').invalid" />
                             <div *ngIf="formSala.get('txtCapacidad').errors?.pattern" class="alert alert-danger">
                                 Ingrese un numero entero de maximo 2 dìgitos.
                            </div> 
-                        <button type="submit" [disabled]="!formSala.valid" class="btn btn-dark">Guardar</button>
+                        <button *ngIf="!guardando" type="submit" [disabled]="!formSala.valid" class="btn btn-dark">Guardar</button>
+                        <button *ngIf="guardando" class="btn btn-dark" [disabled]="true">
+                            <span class="spinner-border spinner-border-sm"></span>
+                            <span> Guardando..</span>
+                        </button>
                     </form>
                 </div>
             </div>
+            <div *ngIf="mostrarAlerta">
+                <label class="{{classAlert}}">{{alerta}}</label>
+            </div>
+        </td>
+        <td id="colListado">
+            <app-listado-salas [consultar]="notifcarNuevoEditar" (eventEditar)=editar($event) (listaSalas)=consultarSalas($event)></app-listado-salas>
         </td>
     </tr>
 </div>

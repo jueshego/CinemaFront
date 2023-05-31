@@ -5,6 +5,9 @@ import { InsertarPeliculaComponent } from './Pelicula/Insertar/insertar-pelicula
 import { ListarPeliculasComponent } from './Pelicula/Listar/listar-peliculas.component'
 import { ListadoFiltroComponent } from './Pelicula/listado-filtro/listado-filtro.component';
 import { InsertarSalaComponent } from './Sala/insertar-sala/insertar-sala.component';
+import { FuncionesComponent } from './Funciones/insertar/funciones.component';
+import { SillasComponent } from './sillas/sillas.component';
+
 
 const routes: Routes = [
   { path: 'clientes', component: ClientesComponent },
@@ -12,7 +15,9 @@ const routes: Routes = [
   { path: 'listar-peliculas', component: ListarPeliculasComponent },
   { path: 'listado-filtro', component: ListadoFiltroComponent },
   { path: 'editar-pelicula/:peliculaId', component: InsertarPeliculaComponent },
-  { path: 'insertar-sala', component: InsertarSalaComponent }
+  { path: 'insertar-sala', component: InsertarSalaComponent },
+  { path: 'funciones', component: FuncionesComponent },
+  { path: 'sillas', component: SillasComponent } 
 ];
 
 @NgModule({

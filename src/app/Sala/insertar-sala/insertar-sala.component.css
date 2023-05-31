@@ -26,6 +26,24 @@ tr {
     height: 30rem;
 }
 
-td {
+#colForm {
     vertical-align: middle;
+}
+ 
+#colListado {
+    padding-left: 0;
+    padding-top: 3rem;
+}
+
+.disabled {
+    background-color: #BDBDBD
+}
+
+.alerta {
+    margin: 20px 0 0 30px;
+    max-width: 18rem;
+}
+
+#headerCapacidad {
+    text-decoration: underline;
 }

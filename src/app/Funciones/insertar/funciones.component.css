@@ -1,0 +1,63 @@
+.divCard {
+    /*overflow: auto;*/
+    width: 15rem;
+    height: 25rem;
+    width:16rem;
+    padding: 15px;
+    padding-right: 5px;
+    margin-left: 2rem;
+    border-radius: 5px;
+    background-color: rgb(77, 67, 148);
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.divCardBody {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.divCardHeader {
+    margin: 5px 0 10px 10px;
+}
+
+.alerta {
+    margin: 20px 0 0 30px;
+    max-width: 18rem;
+}
+
+#colForm {
+    vertical-align: middle;
+}
+
+.form-control {
+    margin: 12px 0 20px 0;
+}
+
+tr {
+    height: 30rem;
+}
+
+.desc {
+    text-align: end;
+    color: lightsteelblue;
+}
+
+.activa {
+    margin-top: 20px;
+    text-align: end;
+}
+
+.form-control {
+    margin-bottom: 5px;
+}
+
+#chkActivo, .lblActiva {
+    margin-left: 5px;
+    margin-bottom: 0px;
+}
+
+.botonGuargar {
+    margin-top: 0px;
+    text-align: end;
+}
+

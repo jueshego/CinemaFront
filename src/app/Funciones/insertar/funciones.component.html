@@ -1,0 +1,69 @@
+<div class="table">
+    <tr>
+        <td id="colForm">
+            <div class="divCard">
+                <div class="divCardHeader">
+                    <h5>{{title}}</h5>
+                </div>
+                <div class="divCardBody">  
+                    <form (submit)="guardar(formFuncion)" #formFuncion="ngForm">
+                        <select class="form-control" [(ngModel)]="model.salaId" #salaId="ngModel" id="salaId" name="salaId" required (change)="seleccionSala(model.salaId)" [class.is-invalid]="salaId.invalid && (salaId.dirty || salaId.touched)">
+                            <option value="">-- Sala --</option>
+                            <option *ngFor="let item of salas" [value]="item.codigo">{{item.codigo}}</option>
+                        </select>
+                        
+                        <div *ngIf="salaId.invalid && (salaId.dirty || salaId.touched)" class="alert alert-danger">
+                            <div *ngIf="salaId.errors.required">
+                                sala es requerida.
+                            </div>
+                        </div>
+
+                        <div class="desc" *ngIf="sede"><label>Sede: {{sede}}</label></div> 
+
+                        <select class="form-control" [(ngModel)]="model.peliculaId" #peliculaId="ngModel" id="peliculaId" name="peliculaId" required (change)="seleccionPelicula(model.peliculaId)" [class.is-invalid]="peliculaId.invalid && (peliculaId.dirty || peliculaId.touched)">
+                            <option value="0">-- Pelicula --</option>
+                            <option *ngFor="let item of peliculas" [value]="item.peliculaId">{{item.titulo}}</option>
+                        </select> 
+
+                        <div *ngIf="peliculaId.invalid && (peliculaId.dirty || peliculaId.touched)" class="alert alert-danger">
+                            <div *ngIf="peliculaId.errors.required">
+                                pelicula es requerida.
+                            </div>
+                        </div>
+
+                        <div class="desc" *ngIf="estreno"><label>Estreno: {{estreno | date:'dd-MM-y'}}</label></div>
+                        
+                        <input type="date" id="fecha" name="fecha" required class="form-control" #fecha="ngModel" [ngModel]="model.fecha | date:'yyyy-MM-dd' : 'UTC'" (ngModelChange)="model.fecha = $event" 
+                            [class.is-invalid]="fecha.touched && fecha.pristine">
+                        
+                        <div *ngIf="fecha.touched && fecha.pristine" class="alert alert-danger">
+                            fecha es requerida.
+                        </div>
+                        
+                        <div class="form-group activa">
+                            <label for="chkActivo" class="lblActiva">Activa</label>
+                            <input type="checkbox" name="chkActivo" id="chkActivo" [ngModel]="model.activa">      
+                        </div>
+                        <div class="botonGuargar">
+                            <button *ngIf="!guardando" type="submit" [disabled]="!formFuncion.form.valid" class="btn btn-dark">Guardar</button>
+                            <button *ngIf="guardando" class="btn btn-dark" [disabled]="true">
+                                <span class="spinner-border spinner-border-sm"></span>
+                                <span> Guardando..</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div *ngIf="mostrarAlerta">
+                <label class="{{classAlert}}">{{alerta}}</label>
+            </div>
+        </td>
+        <td id="colListado">
+            <app-listar-funciones></app-listar-funciones>
+            <!--
+                <app-listado-salas [consultar]="notifcarNuevoEditar" (eventEditar)=editar($event) (listaSalas)=consultarSalas($event)></app-listado-salas>
+            -->
+        </td>
+    </tr>
+</div>
+            

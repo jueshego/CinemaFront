@@ -20,6 +20,10 @@ import { NgxPaginationModule } from 'ngx-pagination'
 import { indRegsReducer } from './Reducers/store.reducer';
 import { CardPeliculaComponent } from './Pelicula/CardPelicula/card-pelicula/card-pelicula.component';
 import { InsertarSalaComponent } from './Sala/insertar-sala/insertar-sala.component';
+import { ListadoSalasComponent } from './Sala/listado-salas/listado-salas.component';
+import { SillasComponent } from './sillas/sillas.component';
+import { FuncionesComponent } from './Funciones/insertar/funciones.component';
+import { ListarFuncionesComponent } from './Funciones/listar/listar-funciones.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,11 @@ import { InsertarSalaComponent } from './Sala/insertar-sala/insertar-sala.compon
     ListadoFiltroComponent,
     FilterPipe,
     CardPeliculaComponent,
-    InsertarSalaComponent
+    InsertarSalaComponent,
+    ListadoSalasComponent,
+    SillasComponent,
+    FuncionesComponent,
+    ListarFuncionesComponent
   ],
   imports: [
     BrowserModule,

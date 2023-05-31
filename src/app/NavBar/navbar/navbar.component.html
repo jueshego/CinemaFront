@@ -12,9 +12,6 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" [routerLink]="['clientes']" routerLinkActive="router-link-active">Insertar</a>
-              <a class="dropdown-item">Listado</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
             </div>
         </li>
         <li class="nav-item dropdown">
@@ -34,6 +31,15 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" [routerLink]="['insertar-sala']" routerLinkActive="router-link-active">Insertar</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Funciones 
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" [routerLink]="['funciones']" routerLinkActive="router-link-active">Funciones</a>
+            <a class="dropdown-item" [routerLink]="['sillas']" routerLinkActive="router-link-active">Sillas</a>
           </div>
         </li>
       </ul>

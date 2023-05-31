@@ -1,0 +1,86 @@
+.col {
+    padding-top:5px;
+    padding-left: 0;
+    margin-left: 5px;
+}
+
+.colHeader {
+    font-weight: bold;
+}
+
+.colCenter {
+    text-align: center;
+}
+
+.colRight {
+    text-align: right;
+    padding-right: 8px;
+}
+ 
+.colSmall {
+    width: 40px;
+}
+
+.colMedium {
+    width: 120px;
+}
+
+#dataRow:nth-child(even) {
+    background-color:rgba(255,255,255,0.1);
+}
+
+#dataRow:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.2), 0 3px 3px 1px  rgba(0, 0, 0, 0.19);
+}
+
+.divLoading {
+    width: 900px !important;
+    height: 500px !important;
+    margin-top: 0;
+}
+
+#lista {
+    margin-left: 10rem;
+}
+
+#borrar {
+    font-family: Helvetica;
+}
+
+#borrar:hover {
+    cursor: pointer;
+}
+
+#txtFiltroCodigo {
+    width: 5rem;
+}
+
+#filtro {
+    margin-left: 5rem;
+    margin-bottom: 1rem;
+}
+
+#lblFiltro {
+    margin: 0 0 8px 0;
+    font-weight: bold;
+}
+
+#selSedes {
+    width: 12rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+#btnBuscar {
+    width: 5rem;
+    height: 40px;
+}
+
+.orden {
+    text-decoration: underline;
+}
+
+.orden:hover {
+    cursor: pointer;
+}

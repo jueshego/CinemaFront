@@ -1,0 +1,77 @@
+.contenedor {
+    width: 500px;
+    height: 500px;
+    background-color: rebeccapurple;
+    margin: 0 auto;
+    padding-top: 5rem;
+}
+
+.sillas {
+    margin: 0 auto;
+    width: 95%;
+    height: 80%;
+    background-color: rgb(200, 200, 200);
+    padding-top: 50px;
+}
+
+.pantalla {
+    margin-top:10px;
+    margin: 0 auto;
+    width: 80%;
+    border: solid 1px;
+    background-color: grey;
+    height: 25px;
+}
+
+.lblPantalla {
+    text-align: center;
+}
+
+.sillaDisponible {
+    width: 40px;
+    height: 20px;
+    font-size: 10px;
+    color: snow;
+    border:none;
+    background-color: rgb(93, 80, 177);
+}
+
+.sillaOcupada{
+    width: 40px;
+    height: 20px;
+    font-size: 10px;
+    color: rgb(70, 70, 70);
+    border:none;
+    background-color: rgb(170, 170, 170);
+}
+
+.sillaSeleccionada{
+    width: 40px;
+    height: 20px;
+    font-size: 10px;
+    color: snow;
+    border: solid 1px rgb(100, 100, 100);
+    background-color: brown;
+}
+
+.sillaDisponible:hover {
+    background-color: indigo;
+    border: solid 1px rgb(100, 100, 100);
+}
+
+.sillaOcupada:hover {
+    cursor: default;
+}
+
+.sillaSeleccionada:hover {
+    background-color: rgb(182, 95, 95);
+    border: solid 1px rgb(120, 120, 120);
+}
+
+.separador {
+    width: 18px;
+}
+
+td {
+    padding-right: 3px;
+}

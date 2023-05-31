@@ -18,12 +18,16 @@ export class InsertarClienteComponent implements OnInit {
   clientes: Cliente[];
   editMode: boolean = false;
   guardando: boolean = false;
-  loading: boolean
+  loading: boolean 
+  titulo: string
+  mostrarAlerta: boolean = false
+  classAlerta: string
+  textoAlerta: string = ''
 
   constructor(private fromBuilder: FormBuilder, private clienteService: ClienteService,
     private store: Store<{ storeIndRegs: IndicadorRegistros }>) { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {  
     this.Limpiar();
 
     this.ListarClientes();
@@ -44,24 +48,31 @@ export class InsertarClienteComponent implements OnInit {
 
       this.clienteService.ActualizarCliente(cliente).
         subscribe(resp => this.GuardadoExitoso(resp), 
-                error => console.error(error));
+                error => this.errorGuardar(error)); 
     }else{
       console.log('guardar this.editMode false: ' + this.editMode);
       this.clienteService.InsertarCliente(cliente).
       subscribe(resp => this.GuardadoExitoso(resp), 
-                error => console.error(error));
+                error => this.errorGuardar(error)); 
     }   
+  }
+
+  errorGuardar(error: any){
+    console.error(error) 
+    console.log(error)
+    this.alerta('Error: ' + error.message, 'alerta error')
   }
 
   GuardadoExitoso(resp: number): void {
     this.ListarClientes();
 
     this.Limpiar();
-    this.guardando = false
+    this.guardando = false 
+    this.alerta('Cliente guardado.', 'alerta success')
   }
 
   Limpiar() {
-    
+    this.titulo = 'Nuevo Cliente'
     this.formInsertarCliente = this.fromBuilder.group({
       txtId: [null],
       txtCedula: [null, [Validators.required]],
@@ -84,10 +95,9 @@ export class InsertarClienteComponent implements OnInit {
 
      this.loading = false
 
-     console.log(this.clientes);
+     console.log(this.clientes); 
 
      this.NotificarCantidadRegistros()
-
   }
 
     private NotificarCantidadRegistros() {
@@ -99,6 +109,7 @@ export class InsertarClienteComponent implements OnInit {
     }
 
   editar(cliente: Cliente){
+    this.titulo = 'Editar Cliente'
     this.formInsertarCliente.patchValue({
       txtId: cliente.clienteId,
       txtCedula: cliente.cedula,
@@ -109,6 +120,12 @@ export class InsertarClienteComponent implements OnInit {
     this.selSexo.setValue(cliente.sexo);
 
     this.editMode = true;
+  }
+
+  alerta(mensaje: string, tipo: string){
+    this.textoAlerta = mensaje
+    this.mostrarAlerta = true
+    this.classAlerta = tipo
   }
 }
   
