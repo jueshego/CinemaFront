@@ -24,7 +24,7 @@ export class ListarComponent implements OnInit {
     private store: Store<{ storeIndRegs: IndicadorRegistros }>) {
       this.loading = true
   }
- render()
+
   ngOnInit(): void {
   }
 
